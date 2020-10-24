@@ -103,17 +103,28 @@ For this section, I tried to use all the features with our Gradient Boosting mod
 
 
 # Final Model 
+For the final model, I have used GradientBoosting model as it has performed much better than others.
+The final parameters of the model are as follows:
+1) Loss = ls
+2) n_estimators = 300 (it is a high number but as GB is robust on overfitting we're good!)
+ 
 
 # How to run?
-
+In this section we will go through running the project and using the notebooks.
 ## Docker
-
+In order to use the project in a docker environment, simply use the commands: 
+1) make build
+2) make run_docker
 ## Python
-
+In order to run the project on your own computer using your own environment or conda kindly use the `make run`
+command. Otherwise, run it using docker.
 # Requirements
-
+All the requirements are written in the requirements.txt file.
 # Ideas
 1) BaggingClassifier
+2) Refactor the docker image
+3) refactor the Makefile
+4) Remove the idea and DS_Store files and clean up the repository
 
 # References
 [1] https://www.kaggle.com/c/GiveMeSomeCredit/
