@@ -5,4 +5,4 @@ RUN apt-get --assume-yes install python3-pip
 RUN apt-get --assume-yes install vim
 COPY . .
 RUN pip3 install -r requirements.txt
-CMD python3 pipeline.py
+ENTRYPOINT ["jupyter","notebook", "--NotebookApp.token=''", "--port=8765", "--NotebookApp.password=''", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
