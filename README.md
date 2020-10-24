@@ -11,6 +11,7 @@ Below we will answer some questions regarding methodology and metrics
 
 Area Under the Curve of the Receiver Operator Characteristic shows how well our binary classifier can distinguish between our two classes.
 This comes handy as we want to know what is the True Positive Rate (TPR) and False Positive Rate (FPR) of our model and this one figure will give us the answer to both.
+An important reason for using AUC-ROC is that since our data is imbalanced the model can get a high precision only with predicting the whole validation data as 0. Which we know is not a correct behavior.  
 
 Other potential metric to use:
 
@@ -38,10 +39,6 @@ In this method we will do the following:
  
  I have used this method because it 1) shuffles the data so that we won't end up with easy validation set (maybe the last 20% of the dataset is easy). 2) Uses all the training dataset as evaluation so this will give us a better understanding of model generalization.
  
- ## Initial insights from the model
- TODO 
- 
-
 # Introduction
 There are multiple notebooks in the notebooks directory that contain the different approaches that I have taken.
 
@@ -50,6 +47,8 @@ There are multiple notebooks in the notebooks directory that contain the differe
 In order to analyse the data I have used pandas and some simple statistics to understand how the data is distributed.
 
 ## Labels balance
+> related notebook: `notebooks/data_exploration.ipynb`
+
 In order to check if we have a balanced or unbalanced dataset. I have grouped the datapoints by the count of labels (SeriousDlqin2yrs).
 Turned out that we have the following data:
 ```
@@ -58,12 +57,52 @@ SeriousDlqin2yrs
 1     10026
 
 ```
-
 This is something that I can later look at. Maybe using a balanced bagging classifier could be a good idea.
+
+## Explaining important features using RandomForest
+>Related notebook: `notebooks/feature_selection_rf.ipynb`
+
+In order to find out the top features we use RandomForest as it is an explainable model and look at the top features it uses to predict the datapoints:
+
+```python
+{'RevolvingUtilizationOfUnsecuredLines': 0.19221123680189298,
+ 'age': 0.12171943243752772,
+ 'NumberOfTime30-59DaysPastDueNotWorse': 0.03604861933861011,
+ 'DebtRatio': 0.19444260090080842,
+ 'MonthlyIncome': 0.14865628566881625,
+ 'NumberOfOpenCreditLinesAndLoans': 0.08066758193948617,
+ 'NumberOfTimes90DaysLate': 0.12786316249439175,
+ 'NumberRealEstateLoansOrLines': 0.03018097017039138,
+ 'NumberOfTime60-89DaysPastDueNotWorse': 0.02865017488715702,
+ 'NumberOfDependents': 0.0395599353609183}
+```
+> Note: As Sklearn documentations has suggested: impurity-based feature importances can be misleading for high cardinality features (many unique values)
+
+Based on the results above the top features are:
+
+```
+ 'age': 0.12171943243752772,
+ 'NumberOfTimes90DaysLate': 0.12786316249439175,
+ 'MonthlyIncome': 0.14865628566881625,
+ 'RevolvingUtilizationOfUnsecuredLines': 0.19221123680189298,
+ 'DebtRatio': 0.19444260090080842
+```
  
+## Training models only on top features
+> Related notebook: `notebooks/feature_selection_rf`
+
+Now we want to train a model only on the important features. Based on my previous experience this method, sometimes, yields
+very good results. After training RF and Gradient Boosting models. I came to the conclusion that this method of feature selection is not suitable.
+
+## Hyperparameter tuning for Gradient Boosting
+> Related notebook: `notebooks/gb_gridsearch`
+
+For this section, I tried to use all the features with our Gradient Boosting model and try to use Gridsearch to find the best parameters for the model.
 
 
-# Model 
+
+
+# Final Model 
 
 # How to run?
 
