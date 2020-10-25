@@ -200,6 +200,7 @@ In this section we will go through running the project and using the notebooks.
 In order to use the project in a docker environment, simply use the commands: 
 1) make build
 2) make run_docker
+3) Open browser and go to: http://127.0.0.1:8765
 ## Python
 In order to run the project on your own computer using your own environment or conda kindly use the `make run`
 command. Otherwise, run it using docker.
