@@ -2,3 +2,6 @@ sklearn
 pandas
 numpy
 jupyter
+seaborn
+matplotlib
+scipy
