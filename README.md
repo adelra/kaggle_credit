@@ -102,7 +102,7 @@ A similar skewedness pattern can be observed in RevolvingUtilizationOfUnsecuredL
 ## Age 
 Age distribution does not see any skewedness.  
 
-![alt text](figures/Age.png "Age")
+![alt text](figures/age.png "Age")
 
 ## Number of dependents 
 
