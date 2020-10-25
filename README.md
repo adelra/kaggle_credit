@@ -62,6 +62,7 @@ kaggle_credit
 |      gb_gridsearch.ipynb: Gridsearching through GradientBoosting hyperparameters
 |      rf_model_feature_importances.ipynb: Training a model with only the most important features previously extracted from Randomforest 
 |      using_all_data.ipynb: Using all the columns for training
+|      gb_iterative_imputator.ipynb : Using GradientBoosting and iterative imputator 
 └───data - Directory containing all the data 
 
 ```
@@ -125,6 +126,23 @@ very good results. After training RF and Gradient Boosting models. I came to the
 For this section, I tried to use all the features with our Gradient Boosting model and try to use Gridsearch to find the best parameters for the model.
 
 Note: As I don't have enough resources this experiment is still on-going.
+
+## Iterative Imputator
+> Related notebook: `nootebooks/gb_iterative_imputator.ipynb`
+
+This is a cool new method to predict nan values based on other features. For this experiment I used the Sklearn experimental feature known as iterative imputations but the result was not very promising.
+
+```python
+
+import numpy as np
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
+
+imp_mean = IterativeImputer()
+x_test = imp_mean.fit_transform(x_test)
+
+
+```
 
 
 # Final Model 
