@@ -41,8 +41,14 @@ In this method we will do the following:
  
 # Introduction
 There are multiple notebooks in the notebooks directory that contain the different approaches that I have taken.
-
-
+```
+data_exploration.ipynb: Showing different statistics on the data
+feature_selection_rf.ipynb: Finding the most important features using Randomforest
+final_model.ipynb: The latest submission using GradientBoosting
+gb_gridsearch.ipynb: Gridsearching through GradientBoosting hyperparameters
+rf_model_feature_importances.ipynb: Training a model with only the most important features previously extracted from Randomforest 
+using_all_data.ipynb: Using all the columns for training
+```
 # Data Analysis
 In order to analyse the data I have used pandas and some simple statistics to understand how the data is distributed.
 
@@ -99,7 +105,7 @@ very good results. After training RF and Gradient Boosting models. I came to the
 
 For this section, I tried to use all the features with our Gradient Boosting model and try to use Gridsearch to find the best parameters for the model.
 
-
+Note: As I don't have enough resources this experiment is still on-going.
 
 
 # Final Model 
@@ -107,7 +113,19 @@ For the final model, I have used GradientBoosting model as it has performed much
 The final parameters of the model are as follows:
 1) Loss = ls
 2) n_estimators = 300 (it is a high number but as GB is robust on overfitting we're good!)
+
+I did not have much time for hyperparameter search or feature selection therefore my final score is a quite normal score.
+I got 85.9 on the public leaderboard and 86.6 on the private leaderboard.
+
+![alt text](figures/submission_score.png "Submission score")
  
+## How to score more?
+As the scores for this task is quite close and there are a lot of submissions that have gotten more or less the same score. 
+I would narrow down the further experiments into two parts:
+1) Feature selection: We can further explore the data and select different features for our inputs
+2) Grid search: Using high resources we can Gridsearch through different hyperparameters and find the best one that can improve our score 
+3) MICE: I have used median for Nan replacement as I didn't have much time over the weekend. I suggest that we can use MICE to replace the missing values
+
 
 # How to run?
 In this section we will go through running the project and using the notebooks.
