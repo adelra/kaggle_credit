@@ -86,6 +86,11 @@ SeriousDlqin2yrs
 ```
 This is something that I can later look at. Maybe using a balanced bagging classifier could be a good idea.
 
+## Correlation
+Below is a heatmap of the correlation of the variables
+
+![alt text](figures/correl.png "correlation score")
+
 ## Explaining important features using RandomForest
 >Related notebook: `notebooks/feature_selection_rf.ipynb`
 
