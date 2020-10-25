@@ -63,6 +63,7 @@ kaggle_credit
 |      rf_model_feature_importances.ipynb: Training a model with only the most important features previously extracted from Randomforest 
 |      using_all_data.ipynb: Using all the columns for training
 |      gb_iterative_imputator.ipynb : Using GradientBoosting and iterative imputator 
+|      gb_knn_imputator.ipynb : KNN imputator 
 └───data - Directory containing all the data 
 
 ```
@@ -141,8 +142,12 @@ from sklearn.impute import IterativeImputer
 imp_mean = IterativeImputer()
 x_test = imp_mean.fit_transform(x_test)
 
-
 ```
+
+## KNN Imputator
+> Related notebooks: `notebooks/gb_knn_imputator.ipynb`
+
+For this test we use K nearest neighbours as a data imputation method. The results were not very promising.
 
 
 # Final Model 
