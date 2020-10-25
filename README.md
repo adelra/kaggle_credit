@@ -175,7 +175,9 @@ x_test = imp_mean.fit_transform(x_test)
 For this test we use K nearest neighbours as a data imputation method. The results were not very promising.
 
 
-# Final Model 
+# Final Model
+> Related notebooks: `notebooks/final_model.ipynb`
+ 
 For the final model, I have used GradientBoosting model as it has performed much better than others.
 The final parameters of the model are as follows:
 1) Loss = ls
