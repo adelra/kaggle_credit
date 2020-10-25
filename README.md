@@ -24,20 +24,20 @@ It is basically how far our prediction is from the true value.
 `MSE = (y_hat - y)**2`
 MSE can be used alongside MSE for a better understanding of model's performance.
 
-Others: Cohen-Kappa score is a measure to say how much two annotators agree on an annotation. It can be used a measure for our model. F1 score, harmonic mean between precision and recall. 
+Others: Cohen-Kappa score is a measure to say how much two annotators agree on an annotation. It can be used a measure for our model. F1 score, harmonic mean between precision and recall can also be used. 
 
 ## How to validate the model?
 In order to validate the model I have used K-fold cross-validation as it a well-known robust method to the model validation.
 In this method we will do the following:
  1) Shuffle the dataset
- 2) split the dataset into k different folds
- 3) for each fold:
+ 2) Split the dataset into k different folds
+ 3) Dor each fold:
     1) Take the group as validation set
     2) Train the model on the other group
-    3) predict the current group and calculate the loss/evaluation metric
+    3) Predict the current group and calculate the loss/evaluation metric
  4) Summarize (Maybe average) over the whole k folds.
  
- I have used this method because it 1) shuffles the data so that we won't end up with easy validation set (maybe the last 20% of the dataset is easy). 2) Uses all the training dataset as evaluation so this will give us a better understanding of model generalization.
+ I have used this method because it 1) Shuffles the data so that we won't end up with easy validation set (maybe the last 20% of the dataset is easy). 2) Uses all the training dataset as evaluation so this will give us a better understanding of model generalization.
  
 # Introduction to repository
 
@@ -144,12 +144,12 @@ Based on the results above the top features are:
 > Related notebook: `notebooks/feature_selection_rf`
 
 Now we want to train a model only on the important features. Based on my previous experience this method, sometimes, yields
-very good results. After training RF and Gradient Boosting models. I came to the conclusion that this method of feature selection is not suitable.
+very good results. After training RF and Gradient Boosting models. I came to the conclusion that this method of feature selection was not suitable.
 
 ## Hyperparameter tuning for Gradient Boosting
 > Related notebook: `notebooks/gb_gridsearch`
 
-For this section, I tried to use all the features with our Gradient Boosting model and try to use Gridsearch to find the best parameters for the model.
+For this section, I tried to use all the features with our Gradient Boosting model and try to use grid search to find the best parameters for the model.
 
 Note: As I don't have enough resources this experiment is still on-going.
 
@@ -179,7 +179,7 @@ For this test we use K nearest neighbours as a data imputation method. The resul
 For the final model, I have used GradientBoosting model as it has performed much better than others.
 The final parameters of the model are as follows:
 1) Loss = ls
-2) n_estimators = 300 (it is a high number but as GB is robust on overfitting we're good!)
+2) n_estimators = 300 (it is a high number but as GB is robust to overfitting, so we're good!)
 
 I did not have much time for hyperparameter search or feature selection therefore my final score is a quite normal score.
 I got 85.9 on the public leaderboard and 86.6 on the private leaderboard.
@@ -187,11 +187,11 @@ I got 85.9 on the public leaderboard and 86.6 on the private leaderboard.
 ![alt text](figures/submission_score.png "Submission score")
  
 ## How to score more?
-As the scores for this task is quite close and there are a lot of submissions that have gotten more or less the same score. 
+As the scores for this task are quite close and there are a lot of submissions that have gotten more or less the same score. 
 I would narrow down the further experiments into two parts:
 1) Feature selection: We can further explore the data and select different features for our inputs
 2) Grid search: Using high resources we can Gridsearch through different hyperparameters and find the best one that can improve our score 
-3) MICE: I have used median for Nan replacement as I didn't have much time over the weekend. I suggest that we can use MICE to replace the missing values
+3) MICE: I have not used median for Nan replacement as I didn't have much time over the weekend. I suggest that we can use MICE to replace the missing values
 
 
 # How to run?
@@ -208,7 +208,7 @@ All the requirements are written in the requirements.txt file.
 # Ideas
 1) BaggingClassifier
 2) Refactor the docker image
-3) refactor the Makefile
+3) Refactor the Makefile
 4) Remove the idea and DS_Store files and clean up the repository
 
 # References
