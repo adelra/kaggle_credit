@@ -91,6 +91,26 @@ Below is a heatmap of the correlation of the variables
 
 ![alt text](figures/correl.png "correlation score")
 
+## DebtRatio skewedness
+
+The DebtRatio is very skewed as the std of the data is 2037 and the plot looks like this:
+
+![alt text](figures/DebtRatio.png "Debt Ratio")
+
+A similar skewedness pattern can be observed in RevolvingUtilizationOfUnsecuredLines as well.
+
+## Age 
+Age distribution does not see any skewedness.  
+
+![alt text](figures/Age.png "Age")
+
+## Number of dependents 
+
+Number of dependents has a mode of 0 and mean of 0.7. 
+
+![alt text](figures/num_dep.png "Number of Dependents")
+
+
 ## Explaining important features using RandomForest
 >Related notebook: `notebooks/feature_selection_rf.ipynb`
 
