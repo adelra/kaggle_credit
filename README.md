@@ -39,16 +39,35 @@ In this method we will do the following:
  
  I have used this method because it 1) shuffles the data so that we won't end up with easy validation set (maybe the last 20% of the dataset is easy). 2) Uses all the training dataset as evaluation so this will give us a better understanding of model generalization.
  
-# Introduction
+# Introduction to repository
+
+The directory structure of the repository is as follow:
+
+```
+kaggle_credit
+│   README.md - This file
+|   Makefile - Makefile build automation directions  
+|   Requirements.txt - Requirements file
+|   final_submission.csv - The outputs from the final submission
+|   Dockerfile - Dockerfile to build the image from 
+|   .gitignore - All the files to be ignored by git  
+│
+└───figures - Directory containing graphs and figures
+│      submission_score.png - My submission score 
+│
+└───notebooks - Directory containing notebooks 
+│      data_exploration.ipynb: Showing different statistics on the data
+|      feature_selection_rf.ipynb: Finding the most important features using Randomforest
+|      final_model.ipynb: The latest submission using GradientBoosting
+|      gb_gridsearch.ipynb: Gridsearching through GradientBoosting hyperparameters
+|      rf_model_feature_importances.ipynb: Training a model with only the most important features previously extracted from Randomforest 
+|      using_all_data.ipynb: Using all the columns for training
+└───data - Directory containing all the data 
+
+```
+
 There are multiple notebooks in the notebooks directory that contain the different approaches that I have taken.
-```
-data_exploration.ipynb: Showing different statistics on the data
-feature_selection_rf.ipynb: Finding the most important features using Randomforest
-final_model.ipynb: The latest submission using GradientBoosting
-gb_gridsearch.ipynb: Gridsearching through GradientBoosting hyperparameters
-rf_model_feature_importances.ipynb: Training a model with only the most important features previously extracted from Randomforest 
-using_all_data.ipynb: Using all the columns for training
-```
+
 # Data Analysis
 In order to analyse the data I have used pandas and some simple statistics to understand how the data is distributed.
 
